@@ -26,11 +26,11 @@ fs.readdirSync(path.join(__dirname, 'module'))
           cookie: data.cookie ? data.cookie : {},
         },
         async (...args) => {
-          if (firstRun) {
-            firstRun = false
-            const generateConfig = require('./generateConfig')
-            await generateConfig()
-          }
+          // if (firstRun) {
+          //   firstRun = false
+          //   // const generateConfig = require('./generateConfig')
+          //   // await generateConfig()
+          // }
           // 待优化
           const request = require('./util/request')
 

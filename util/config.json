@@ -14,5 +14,7 @@
     "domain": "https://music.163.com",
     "encrypt": true,
     "encryptResponse": true
-  }
+  },
+  "CORS_ALLOW_ORIGIN":["http://localhost:8080/","http://localhost:3000/"]
+
 }

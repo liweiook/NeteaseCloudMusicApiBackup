@@ -142,8 +142,6 @@ const createRequest = (method, uri, data = {}, options) => {
         eapiEncrypt()
       } else url = APP_CONF.apiDomain + uri
     }
-    const answer = { status: 500, body: {}, cookie: [] }
-    // console.log(headers, 'headers')
     let settings = {
       method: method,
       url: url,
@@ -190,6 +188,7 @@ const createRequest = (method, uri, data = {}, options) => {
         responseType: 'arraybuffer',
       }
     }
+    const answer = { status: 500, body: {}, cookie: [] }
     axios(settings)
       .then((res) => {
         const body = res.data

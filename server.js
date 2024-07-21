@@ -8,6 +8,7 @@ const cache = require('./util/apicache').middleware
 const { cookieToJson } = require('./util/index')
 const fileUpload = require('express-fileupload')
 const decode = require('safe-decode-uri-component')
+// const { CORS_ALLOW_ORIGIN } = require('./util/config.json')
 
 /**
  * The version check result.
@@ -143,6 +144,26 @@ async function consturctServer(moduleDefs) {
   /**
    * CORS & Preflight request
    */
+  // app.use((req, res, next) => {
+  //   if (req.path !== '/' && !req.path.includes('.')) {
+  //     const origin = req.headers.referer
+  //     if (CORS_ALLOW_ORIGIN.includes(origin)) {
+  //       res.set({
+  //         'Access-Control-Allow-Credentials': true,
+  //         'Access-Control-Allow-Origin': origin.slice(0, -1),
+  //         'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
+  //         'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
+  //         'Content-Type': 'application/json; charset=utf-8',
+  //       })
+  //       // 处理预检请求
+  //       req.method === 'OPTIONS' ? res.status(204).end() : next()
+  //     } else {
+  //       // 如果来源不在允许的列表中，返回403 Forbidden
+  //       res.status(403).json({ error: 'CORS Error: Origin not allowed' })
+  //     }
+  //   }
+  // })
+
   app.use((req, res, next) => {
     if (req.path !== '/' && !req.path.includes('.')) {
       res.set({
